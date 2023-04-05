@@ -22,10 +22,21 @@
       <!-- better way of doing this is this approach -->
       <!-- passing arguments -->
       <button v-on:click="addcounter( 10 )">Add 5</button>
-      <button v-on:click="counter = counter - 1">Remove</button>
+      <button v-on:click.right = "counter = counter - 1">subtract</button>
+
+      <!-- if you want to preserve the initiall stage  with directive (only chance at oncee)-->
+      <p v-once >Starting Counter: {{ counter }}</p>
+
       <p>Result: {{ counter }}</p>
-      <input type="text" v-on:input="setname">
-      <p>Your Name: {{ name }}</p>
+
+      <!-- we can add more than one event lisners -->
+      <input type="text" v-on:input="setname($event, 'sharma')" v-on:keyup.enter="confirmInput">
+      <p>Your Name: {{ confirmname }}</p>
+      <!-- event modifier -->
+      <form  v-on:submit.prevent ="submitform" >
+        <input type="text">
+        <button type="submit">sign up</button>
+      </form>
     </section>
   </body>
 </html>

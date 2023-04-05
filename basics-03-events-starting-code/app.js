@@ -2,17 +2,25 @@ const app = Vue.createApp({
   data() {
     return {
       counter: 0,
-      name: ""
+      name: "",
+      confirmname: "",
     };
   },
   methods: {
     // dynamic function 
     // passing arguments
     // new
-    setname(event) {
-      this.name = event.target.value;
+    confirmInput(){
+      this.confirmname = this.name
+    },
+    submitform(event){
+      // it is built in javascript
+        // event.preventDefault(); 
+        alert('Submited!');
+    },
+    setname(event, lastname) {
+      this.name = event.target.value + " " + lastname;
       console.log(event.target)
-
 
     },
     addcounter(num) {
